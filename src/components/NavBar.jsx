@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaStar, FaHome, FaUserPlus } from 'react-icons/fa';
-
+import { Link } from 'react-router-dom';
 const NavBar = () => {
   const [hoveredIcon, setHoveredIcon] = useState('');
 
@@ -15,7 +15,7 @@ const NavBar = () => {
       {/* Navbar for mobile: horizontal at the bottom */}
       <div className="md:w-2/4 flex justify-around bg-white m-2 fixed bottom-0 left-1/2 transform -translate-x-1/2 place-items-center p-3 w-[90%] rounded-3xl">
         {navItems.map((item, index) => (
-          <a
+          <Link  to={item.path}
             key={index}
             href={item.path}
             className="relative flex flex-col items-center"
@@ -27,7 +27,7 @@ const NavBar = () => {
               {item.icon}
             </div>
             {/* Optionally add labels for desktop view */}
-          </a>
+          </Link>
         ))}
       </div>
     </div>
